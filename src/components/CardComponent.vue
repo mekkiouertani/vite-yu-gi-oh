@@ -3,6 +3,7 @@
         <img :src="image" class="card-img-top" :alt="name">
         <div class="card-body">
             <h5 class="card-title ">{{ name }}</h5>
+            <h6>{{ species }}</h6>
         </div>
     </div>
 </template>
