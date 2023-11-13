@@ -1,5 +1,5 @@
 <template>
-    <h1>Yu-Gi-Oh Api</h1>
+    <h1 class="my-4">Yu-Gi-Oh Api</h1>
 </template>
 
 <script>
