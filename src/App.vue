@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <TitleComponent />
 
+    <TitleComponent />
+    <LoadingComponent v-show="store.cardList.length <= 0" />
     <div class="row g-4 mb-5 ">
       <div v-for="card in store.cardList" :key="card.id" class="col-6 col-md-4 col-lg-3">
         <CardComponent :image="card.card_images[0].image_url" :name="card.name" :species="card.race" />
@@ -16,10 +17,11 @@ import { store } from './data/store.js';
 import axios from "axios";
 import CardComponent from './components/CardComponent.vue';
 import TitleComponent from './components/TitleComponent.vue';
+import LoadingComponent from './components/LoadingComponent.vue';
 
 export default {
   name: 'App',
-  components: { TitleComponent, CardComponent },
+  components: { TitleComponent, CardComponent, LoadingComponent },
   data() {
     return {
       store,
