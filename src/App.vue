@@ -2,8 +2,10 @@
   <div class="container">
     <TitleComponent />
 
-    <div v-for="card in store.cardList" :key="card.id">
-      <CardComponent :image="card.image" :name="card.name" :species="card.species" />
+    <div class="row g-4 mb-5 ">
+      <div v-for="card in store.cardList" :key="card.id" class="col-6 col-md-4 col-lg-3">
+        <CardComponent :image="card.card_images[0].image_url" :name="card.name" :species="card.race" />
+      </div>
     </div>
 
   </div>
@@ -27,7 +29,7 @@ export default {
   methods: {
     getCard() {
       axios.get(store.apiUrl).then((card) => {
-        store.cardList = card.data
+        store.cardList = card.data.data
         console.log(store.cardList)
       })
     }

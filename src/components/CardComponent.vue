@@ -1,6 +1,10 @@
 <template>
-    <img :src="image" :alt="image">
-    <h5>{{ name }}</h5>
+    <div class="card">
+        <img :src="image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ name }}</h5>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -14,4 +18,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card-body {
+    height: 100px;
+}
+</style>
