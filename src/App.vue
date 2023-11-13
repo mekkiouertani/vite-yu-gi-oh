@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <TitleComponent />
-    <CardComponent />
+
+    <div v-for="card in store.cardList" :key="card.id">
+      <CardComponent :image="card.image" :name="card.name" :species="card.species" />
+    </div>
+
   </div>
 </template>
 
@@ -17,19 +21,19 @@ export default {
   data() {
     return {
       store,
-      cardList: [],
+
     }
   },
   methods: {
     getCard() {
       axios.get(store.apiUrl).then((card) => {
-        this.cardList.push(card.data)
+        store.cardList = card.data
+        console.log(store.cardList)
       })
     }
   },
   created() {
     this.getCard();
-    console.log(this.cardList);
   },
 }
 </script>
