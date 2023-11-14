@@ -2,7 +2,7 @@
     <div class="my-4">
         <select name="searchbar" id="searchbar" v-model="textSearch" @change="passData">
             <option value="">All</option>
-            <option value="Alien">Alien</option>
+            <option value="-Eyes Dragon">Alien</option>
             <option value="alligator">Alligator</option>
         </select>
     </div>
