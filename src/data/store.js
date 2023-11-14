@@ -9,6 +9,9 @@ export const store = reactive({
     archetype: "archetypes.php",
   },
   endPoint: {
-    num: "?num=20&offset=0/",
+    num: 20,
+    offset: 0,
+    arch: ".archetype_name",
+    archetype: null,
   },
 });

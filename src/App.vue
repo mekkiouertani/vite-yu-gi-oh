@@ -50,7 +50,6 @@ export default {
         for (let i = 0; i < 20; i++) {
           store.typeList.push(el.data[i].archetype_name)
         }
-
       })
       console.log(store.typeList);
     },

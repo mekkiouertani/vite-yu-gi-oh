@@ -2,8 +2,10 @@
     <div class="my-4">
         <select name="searchbar" id="searchbar" v-model="textSearch" @change="passData">
             <option value="">All</option>
-            <option value="-Eyes Dragon">Alien</option>
+            <option value="-Eyes Dragon">Eyes Dragon</option>
             <option value="alligator">Alligator</option>
+            <option value="Aesir">Aesir</option>
+            <option value="Amazement">Amazement</option>
         </select>
     </div>
 </template>
