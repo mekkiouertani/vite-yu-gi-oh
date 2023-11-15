@@ -14,4 +14,6 @@ export const store = reactive({
     arch: ".archetype_name",
     archetype: null,
   },
+  error: "",
+  loading: true,
 });

@@ -5,7 +5,7 @@
     <SearchBar @filter-change="setParams" />
     <LoadingComponent v-show="store.cardList.length <= 0" />
     <div class="row g-4 mb-5 ">
-      <div v-for="card in store.cardList" :key="card.id" class="col-6 col-md-4 col-lg-3">
+      <div v-for="card in store.cardList" :key="card.id" class="col-12 col-md-6 col-lg-4">
         <CardComponent :image="card.card_images[0].image_url" :name="card.name" :species="card.race" />
       </div>
     </div>
@@ -34,6 +34,11 @@ export default {
     getCard() {
       axios.get(store.apiUrl + store.midPoint.cardInfo, { params: this.store.endPoint }).then((card) => {
         store.cardList = card.data.data
+      }).catch((error) => {
+        console.log(error)
+        this.store.error = error.message;
+      }).finally(() => {
+        store.loading = false
       })
     },
     setParams(search) {
