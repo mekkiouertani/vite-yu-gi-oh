@@ -1,7 +1,8 @@
 @import 'bootstrap/scss/bootstrap';
 body{
+  background-image: url();
   background: linear-gradient(90deg, hsla(17, 95%, 50%, 1) 0%, hsla(42, 94%, 57%, 1) 100%);
-  background-size: 400% 400%;
+  background-size: 200% 200%;
   animation: gradient 15s ease infinite;
 }
 @keyframes gradient {

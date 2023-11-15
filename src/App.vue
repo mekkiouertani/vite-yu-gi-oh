@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-
     <TitleComponent />
+
     <SearchBar @filter-change="setParams" />
     <LoadingComponent v-show="store.cardList.length <= 0" />
     <div class="row g-4 mb-5 ">
@@ -34,11 +34,6 @@ export default {
     getCard() {
       axios.get(store.apiUrl + store.midPoint.cardInfo, { params: this.store.endPoint }).then((card) => {
         store.cardList = card.data.data
-      }).catch((error) => {
-        console.log(error)
-        this.store.error = error.message;
-      }).finally(() => {
-        store.loading = false
       })
     },
     setParams(search) {
@@ -56,12 +51,19 @@ export default {
           store.typeList.push(el.data[i].archetype_name)
         }
       })
-      console.log(store.typeList);
     },
   },
   created() {
-    this.getCard();
-    this.getArchetype();
+    Promise.all([this.getCard(), this.getArchetype()]).then(function (results) {
+      const acct = results[0];
+      const perm = results[1];
+    }).catch((error) => {
+      console.log(error)
+      this.store.error = error.message;
+    }).finally(() => {
+      store.loading = false
+    })
+
   },
 }
 </script>
